@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>  
+  <session-factory>  
+   
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>  
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Banca</property>    
+    <property name="hibernate.connection.username">root</property>  
+    <property name="hibernate.connection.password">secret</property>
+
+    <!-- Specified key was too long; max key length is 1000 bytes 
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>-->
+
+    <!-- creazione automatica di tabelle -->
+    <property name="hbm2ddl.auto">update</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>  
+
+    <!-- realizzazione pool di connessione -->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">30</property>
+    <property name="hibernate.c3p0.acquire_increment">5</property>
+    <property name="hibernate.c3p0.timeout">1800</property>
+
+    <!--inserisco package.class-->
+    <mapping class="Datastore.Movimento"/>
+    <mapping class="PackageAnagrafica.Cliente"/>
+    <mapping class="Prodotti.ContoBanca"/>
+    <mapping class="Prodotti.CartaDiCredito"/>
+    <mapping class="Prodotti.Prepagata"/>
+  </session-factory>  
+</hibernate-configuration> 
